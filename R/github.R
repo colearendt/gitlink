@@ -1,6 +1,29 @@
-
 # https://blog.github.com/2008-12-19-github-ribbons/
 # http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
+
+#' @export
+github <- function(link, position = "right", color = "white") {
+  hex = color_lookup[[color]]
+  htmltools::a(
+    href = link,
+    htmltools::img(
+      style = paste(
+        "position: absolute; top: 0;",
+        position,
+        ": 0; border: 0; z-index: 500"
+        ),
+      src = paste0(
+        "https://s3.amazonaws.com/github/ribbons/forkme_",
+        position,
+        "_",
+        color,
+        "_",
+        hex,
+        ".png"),
+      alt = "Fork me on GitHub"
+    )
+  )
+}
 
 #' @export
 ribbon_github_top_left <- function(link) {
