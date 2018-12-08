@@ -12,12 +12,21 @@ ribbon_github_top_left <- function(link) {
   )
 }
 
+color_lookup <- list(
+  red = "aa0000",
+  green = "007200",
+  darkblue = "121621",
+  orange = "ff7600",
+  gray = "6d6d6d",
+  white = "ffffff"
+)
+
 #' @export
 ribbon_github_top_right <- function(link, color = "white", hex = "ffffff") {
   htmltools::a(
     href = link,
     htmltools::img(
-      style = "position: absolute; top: 0; right: 0; border: 0; z-index: 999",
+      style = "position: absolute; top: 0; right: 0; border: 0; z-index: 500",
       src = paste0("https://s3.amazonaws.com/github/ribbons/forkme_right_", color, "_",hex,".png"),
       alt = "Fork me on GitHub"
     )
