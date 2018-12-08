@@ -1,5 +1,7 @@
 
 # https://blog.github.com/2008-12-19-github-ribbons/
+# http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
+
 #' @export
 ribbon_github_top_left <- function(link) {
   htmltools::a(
