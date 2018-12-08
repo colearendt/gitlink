@@ -2,7 +2,7 @@
 # http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
 
 #' @export
-github <- function(link, position = "right", color = "white") {
+ribbon_github <- function(link, position = "right", color = "white") {
   hex = color_lookup[[color]]
   htmltools::a(
     href = link,
