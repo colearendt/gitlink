@@ -11,6 +11,8 @@ For example,
 ribbon_github("https://github.com/colearendt/ribbon")
 ```
 
+![demo Shiny application with "Fork Me on Github" ribbon](./shiny-app.png)\
+
 ### Getting Started
 
 The package is not currently on CRAN, so you can install the latest
