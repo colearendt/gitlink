@@ -11,7 +11,7 @@ For example,
 ribbon_github("https://github.com/colearendt/ribbon")
 ```
 
-![demo Shiny application with "Fork Me on Github" ribbon](./shiny-app.png)\
+![demo Shiny application with "Fork Me on Github" ribbon](./shiny-app.png) \
 
 ### Getting Started
 
