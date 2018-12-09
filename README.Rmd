@@ -1,0 +1,19 @@
+---
+title: "ribbon"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ribbon)
+```
+
+## Ribbon
+
+Include useful ribbons in your Shiny applications and R Markdown documents quickly and easily with the `ribbon` package!
+
+For example,
+
+```{r github}
+ribbon_github("https://github.com/colearendt/ribbon")
+```
