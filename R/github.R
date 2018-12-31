@@ -10,7 +10,8 @@ ribbon_css <- function(link, position = "right", color = "white") {
     "position" = "absolute",
     "left" = "-50px",
     "top" = "40px",
-    "transform" = "rotate(-45deg)"
+    "transform" = "rotate(-45deg)",
+    "box-shadow" = "0 0 10px #888"
   )
   css_a <- htmltools::css(
     "border" = "1px solid #faa",
@@ -20,7 +21,8 @@ ribbon_css <- function(link, position = "right", color = "white") {
     "margin" = "1px 0",
     "padding" = "10px 50px",
     "text-align" = "center",
-    "text-decoration" = "none"
+    "text-decoration" = "none",
+    "text-shadow" = "0 0 5px #444"
   )
   html_prep <- htmltools::div(
     class = "ribbon",
