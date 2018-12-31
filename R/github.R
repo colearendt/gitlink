@@ -6,7 +6,11 @@ ribbon_css <- function(link, position = "right", color = "white") {
   css_ribbon <- htmltools::css(
     "background-color" = "#a00",
     "overflow" = "hidden",
-    "white-space" = "nowrap"
+    "white-space" = "nowrap",
+    "position" = "absolute",
+    "left" = "-50px",
+    "top" = "40px",
+    "transform" = "rotate(-45deg)"
   )
   css_a <- htmltools::css(
     "border" = "1px solid #faa",
