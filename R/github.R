@@ -2,6 +2,30 @@
 # http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
 
 #' @export
+ribbon_css <- function(link, position = "right", color = "white") {
+  css_ribbon <- htmltools::css(
+    "background-color" = "#a00",
+    "overflow" = "hidden",
+    "white-space" = "nowrap"
+  )
+  css_a <- htmltools::css(
+    "border" = "1px solid #faa",
+    "color" = "#fff",
+    "display" = "block",
+    "font" = "bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "margin" = "1px 0",
+    "padding" = "10px 50px",
+    "text-align" = "center",
+    "text-decoration" = "none"
+  )
+  html_prep <- htmltools::div(
+    class = "ribbon",
+    style = css_ribbon,
+    htmltools::a(href = link, "Fork me on GitHub", style = css_a))
+  return(html_prep)
+}
+
+#' @export
 ribbon_github <- function(link, position = "right", color = "white") {
   hex = color_lookup[[color]]
   htmltools::a(
