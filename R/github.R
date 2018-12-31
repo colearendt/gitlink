@@ -2,9 +2,9 @@
 # http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
 
 #' @export
-ribbon_css <- function(link, position = "right", color = "white") {
+ribbon_css <- function(link, position = "right", color = "white", font_color = "black") {
   css_ribbon <- htmltools::css(
-    "background-color" = "#a00",
+    "background-color" = color,
     "overflow" = "hidden",
     "white-space" = "nowrap",
     "position" = "absolute",
@@ -14,15 +14,16 @@ ribbon_css <- function(link, position = "right", color = "white") {
     "box-shadow" = "0 0 10px #888"
   )
   css_a <- htmltools::css(
-    "border" = "1px solid #faa",
-    "color" = "#fff",
+    "border" = paste("1px solid", color),
+    "color" = font_color,
     "display" = "block",
-    "font" = "bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "font" = "bold 95% 'Collegiate', Arial, sans-serif",
     "margin" = "1px 0",
-    "padding" = "10px 50px",
+    "padding" = "6px 50px",
     "text-align" = "center",
     "text-decoration" = "none",
-    "text-shadow" = "0 0 5px #444"
+    "letter-spacing" = "-0.3px"
+    #"text-shadow" = "0 0 5px #444"
   )
   html_prep <- htmltools::div(
     class = "ribbon",
