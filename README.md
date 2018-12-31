@@ -7,7 +7,7 @@ documents quickly and easily with the `ribbon` package\!
 For example,
 
 ``` r
-# note that this does not actually work for markdown documents
+# note that this does not actually work for pure markdown documents like this README
 ribbon_github("https://github.com/colearendt/ribbon")
 ```
 
