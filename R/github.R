@@ -2,7 +2,8 @@
 # http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
 
 #' @export
-ribbon_css <- function(link, position = c("left","right"), color = "white", font_color = "black") {
+ribbon_css <- function(link, position = c("left","right"), color = "white", font_color = "black", ..., link_css = list(), parent_css = list()) {
+  ribbon_css <- rlang::list2(...)
   # calculate location based on position
   if (length(position) > 1) {
     position <- "right"
@@ -26,7 +27,8 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
       "width" = "150px",
       "height" = "150px"
       ),
-    parent_location
+    parent_location,
+    parent_css
     )
   )
   css_ribbon <- do.call(
@@ -40,10 +42,13 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
     "box-shadow" = "0 0 10px #888"
     # clip-path: polygon(-50% -50%, 80% -50%, 105% 150%, -50% 150%);
     ),
-    location
+    location,
+    ribbon_css
     )
   )
-  css_a <- htmltools::css(
+  css_a <- do.call(
+    htmltools::css,
+    args = c(list(
     "border" = paste("1px solid", color),
     "color" = font_color,
     "display" = "block",
@@ -53,6 +58,8 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
     "text-align" = "center",
     "text-decoration" = "none",
     "letter-spacing" = "-0.3px"
+    ),
+    link_css)
     #"text-shadow" = "0 0 5px #444"
   )
   html_prep <- htmltools::div(
