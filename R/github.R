@@ -2,7 +2,7 @@
 # http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
 
 #' @export
-ribbon_css <- function(link, position = c("left","right"), color = "white", font_color = "black", ..., link_css = list(), parent_css = list()) {
+ribbon_css <- function(link, position = c("left","right"), color = "white", font_color = "black", border_color = "white", text = "Fork me on GitHub", ..., link_css = list(), parent_css = list()) {
   ribbon_css <- rlang::list2(...)
   # calculate location based on position
   if (length(position) > 1) {
@@ -49,7 +49,7 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
   css_a <- do.call(
     htmltools::css,
     args = c(list(
-    "border" = paste("1px solid", color),
+    "border" = paste("1px solid", border_color),
     "color" = font_color,
     "display" = "block",
     "font" = "bold 95% 'Collegiate', Arial, sans-serif",
@@ -68,7 +68,7 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
     htmltools::div(
       class = "ribbon",
       style = css_ribbon,
-      htmltools::a(href = link, "Fork me on GitHub", style = css_a)
+      htmltools::a(href = link, text, style = css_a)
       )
   )
   return(html_prep)
