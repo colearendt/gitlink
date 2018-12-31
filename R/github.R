@@ -2,16 +2,46 @@
 # http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
 
 #' @export
-ribbon_css <- function(link, position = "right", color = "white", font_color = "black") {
-  css_ribbon <- htmltools::css(
+ribbon_css <- function(link, position = c("left","right"), color = "white", font_color = "black") {
+  # calculate location based on position
+  if (length(position) > 1) {
+    position <- "right"
+  }
+  if (position == "right") {
+    location <- list(right = "-50px", transform = "rotate(45deg)")
+    parent_location <- list(right = "0px")
+  } else if (position == "left") {
+    location <- list(left = "-50px", transform = "rotate(-45deg)")
+    parent_location <- list(left = "0px")
+  } else {
+    stop(sprintf("Unrecognized position: %s", position))
+  }
+
+  css_ribbon_parent <- do.call(
+    htmltools::css,
+    c(list(
+      "position" = "absolute",
+      "top" = "0px",
+      "overflow" = "hidden",
+      "width" = "150px",
+      "height" = "150px"
+      ),
+    parent_location
+    )
+  )
+  css_ribbon <- do.call(
+    htmltools::css,
+    args = c(list(
     "background-color" = color,
     "overflow" = "hidden",
     "white-space" = "nowrap",
     "position" = "absolute",
-    "left" = "-50px",
-    "top" = "40px",
-    "transform" = "rotate(-45deg)",
+    "top" = "45px",
     "box-shadow" = "0 0 10px #888"
+    # clip-path: polygon(-50% -50%, 80% -50%, 105% 150%, -50% 150%);
+    ),
+    location
+    )
   )
   css_a <- htmltools::css(
     "border" = paste("1px solid", color),
@@ -26,9 +56,14 @@ ribbon_css <- function(link, position = "right", color = "white", font_color = "
     #"text-shadow" = "0 0 5px #444"
   )
   html_prep <- htmltools::div(
-    class = "ribbon",
-    style = css_ribbon,
-    htmltools::a(href = link, "Fork me on GitHub", style = css_a))
+    class = "ribbon-parent",
+    style = css_ribbon_parent,
+    htmltools::div(
+      class = "ribbon",
+      style = css_ribbon,
+      htmltools::a(href = link, "Fork me on GitHub", style = css_a)
+      )
+  )
   return(html_prep)
 }
 
