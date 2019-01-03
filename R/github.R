@@ -103,7 +103,7 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
 }
 
 #' @export
-ribbon_github <- function(link, position = "right", color = "white") {
+ribbon_img <- function(link, position = "right", color = "white") {
   hex = color_lookup[[color]]
   htmltools::a(
     href = link,
