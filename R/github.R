@@ -1,6 +1,34 @@
 # https://blog.github.com/2008-12-19-github-ribbons/
 # http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
 
+#' Build a GitHub Ribbon with CSS
+#'
+#' The benefits of using CSS are:
+#'  - any color you can dream up
+#'  - any font / font color you want
+#'  - any text you want
+#'  - customizable size / location / etc.
+#'  - do not have to worry about DPI and image resolution
+#'  - link is only clickable on the banner itself
+#'
+#'  CSS passed to the function will override the default CSS to
+#'  give you the ultimate flexibility in customizing the ribbon to
+#'  fit your needs.
+#'
+#'  @param link The URL that the ribbon will link to
+#'  @param position The position to place the ribbon in (either "left" or "right")
+#'  @param color Any css-valid color specification for the background of the ribbon
+#'  @param font_color Any css-valid color specification for the text of the ribbon
+#'  @param border_color Any css-valid color specification for the border of the ribbon
+#'  @param text The text to show on the ribbon
+#'  @param ... key=value CSS passed along to the ribbon div
+#'  @param link_css A list of key=value CSS passed along to the link text
+#'  @param parent_css A list of key=value CSS passed along to the parent div of the ribbon
+#'
+#'  @examples
+#'  ribbon_css("https://github.com/colearendt/gitlink")
+#'  ribbon_css("https://github.com/colearendt/gitlink", position = "left", color = "#e4e4e4")
+#'  ribbon_css("https://github.com/colearendt/gitlink", position = "left", color = "#eafffc")
 #' @export
 ribbon_css <- function(link, position = c("left","right"), color = "white", font_color = "black", border_color = "white", text = "Fork me on GitHub", ..., link_css = list(), parent_css = list()) {
   ribbon_css <- rlang::list2(...)
