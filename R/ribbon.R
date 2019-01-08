@@ -67,7 +67,12 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
     "white-space" = "nowrap",
     "position" = "absolute",
     "top" = "45px",
-    "box-shadow" = "0 0 10px #888"
+    "box-shadow" = "0 0 10px #888",
+    "transition" = "opacity 0.5s",
+    "transition-property" = "opacity",
+    "transition-duration" = "0.5s",
+    "transition-timing-function" = "ease",
+    "transition-delay" = "0s"
     # clip-path: polygon(-50% -50%, 80% -50%, 105% 150%, -50% 150%);
     ),
     location,
@@ -124,6 +129,11 @@ ribbon_img <- function(link, position = "right", color = "white") {
       alt = "Fork me on GitHub"
     )
   )
+}
+
+#' @export
+get_color_lookup <- function(){
+  return(color_lookup)
 }
 
 color_lookup <- list(
