@@ -1,16 +1,17 @@
-Package: ribbon
-Title: Add ribbons to your web-based assets
+Package: gitlink
+Title: Add git links to your web-based assets
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Cole",
            family = "Arendt",
            role = c("aut", "cre"),
            email = "cole@rstudio.com")
-Description: Provides helpers to add ribbons to Shiny applications, R Markdown documents, 
+Description: Provides helpers to add git links to Shiny applications, R Markdown documents, 
             and other HTML-based resources. This is most commonly used for GitHub ribbons.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Imports: 
-    htmltools
+    htmltools,
+    rlang
