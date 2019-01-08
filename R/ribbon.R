@@ -68,11 +68,13 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
     "position" = "absolute",
     "top" = "45px",
     "box-shadow" = "0 0 10px #888",
-    "transition" = "opacity 0.5s",
-    "transition-property" = "opacity",
-    "transition-duration" = "0.5s",
-    "transition-timing-function" = "ease",
-    "transition-delay" = "0s"
+    "opacity" = "0.6",
+    "transition" = c(
+      "transition-property" = "opacity",
+      "transition-duration" = "0.5s",
+      "transition-timing-function" = "ease",
+      "transition-delay" = "0s"
+    )
     # clip-path: polygon(-50% -50%, 80% -50%, 105% 150%, -50% 150%);
     ),
     location,
@@ -101,8 +103,11 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
     htmltools::div(
       class = "ribbon",
       style = css_ribbon,
-      htmltools::a(href = link, text, style = css_a)
+      htmltools::a(href = link, text, style = css_a),
+      htmltools::tags$head(
+        htmltools::tags$style(".ribbon:hover { opacity: 1; }")
       )
+    )
   )
   return(html_prep)
 }
