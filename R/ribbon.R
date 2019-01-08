@@ -1,6 +1,29 @@
 # https://blog.github.com/2008-12-19-github-ribbons/
 # http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
 
+ribbon_opacity_css <- function(){
+  ribbon_css <- htmltools::css(
+    "opacity" = "0.6",
+    "transition" = c(
+      "transition-property" = "opacity",
+      "transition-duration" = "0.5s",
+      "transition-timing-function" = "ease",
+      "transition-delay" = "0s"
+    )
+  )
+  ribbon_hover_css <- htmltools::css(
+    "opacity" = "1"
+  )
+  return(
+    htmltools::tags$head(
+      htmltools::tags$style(
+        ".ribbon:hover" = ribbon_hover_css,
+        ".ribbon" = ribbon_css
+      )
+    )
+  )
+}
+
 #' Build a GitHub Ribbon with CSS
 #'
 #' The benefits of using CSS are:
@@ -67,14 +90,7 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
     "white-space" = "nowrap",
     "position" = "absolute",
     "top" = "45px",
-    "box-shadow" = "0 0 10px #888",
-    "opacity" = "0.6",
-    "transition" = c(
-      "transition-property" = "opacity",
-      "transition-duration" = "0.5s",
-      "transition-timing-function" = "ease",
-      "transition-delay" = "0s"
-    )
+    "box-shadow" = "0 0 10px #888"
     # clip-path: polygon(-50% -50%, 80% -50%, 105% 150%, -50% 150%);
     ),
     location,
@@ -103,10 +119,7 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
     htmltools::div(
       class = "ribbon",
       style = css_ribbon,
-      htmltools::a(href = link, text, style = css_a),
-      htmltools::tags$head(
-        htmltools::tags$style(".ribbon:hover { opacity: 1; }")
-      )
+      htmltools::a(href = link, text, style = css_a)
     )
   )
   return(html_prep)
