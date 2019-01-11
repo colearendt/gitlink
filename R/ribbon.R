@@ -119,7 +119,7 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
     htmltools::div(
       class = "ribbon",
       style = css_ribbon,
-      htmltools::a(href = link, text, style = css_a)
+      htmltools::a(href = link, text, style = css_a, target = "_blank")
     )
   )
   return(html_prep)
