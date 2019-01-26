@@ -76,7 +76,9 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
       "top" = "0px",
       "overflow" = "hidden",
       "width" = "150px",
-      "height" = "150px"
+      "height" = "150px",
+      "z-index" = "5",
+      "pointer-events" = "none"
       ),
     parent_location,
     parent_css
@@ -90,7 +92,8 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
     "white-space" = "nowrap",
     "position" = "absolute",
     "top" = "45px",
-    "box-shadow" = "0 0 10px #888"
+    "box-shadow" = "0 0 10px #888",
+    "pointer-events" = "auto"
     # clip-path: polygon(-50% -50%, 80% -50%, 105% 150%, -50% 150%);
     ),
     location,
