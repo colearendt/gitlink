@@ -6,35 +6,59 @@
 \usage{
 ribbon_css(link, position = c("left", "right"), color = "white",
   font_color = "black", border_color = "white",
-  text = "Fork me on GitHub", ..., link_css = list(),
-  parent_css = list())
+  text = "Fork me on GitHub", ..., fade = TRUE, link_css = list(),
+  parent_css = list(), hover_css = list())
+}
+\arguments{
+\item{link}{The URL that the ribbon will link to}
+
+\item{position}{The position to place the ribbon in (either "left" or "right")}
+
+\item{color}{Any css-valid color specification for the background of the ribbon}
+
+\item{font_color}{Any css-valid color specification for the text of the ribbon}
+
+\item{border_color}{Any css-valid color specification for the border of the ribbon}
+
+\item{text}{The text to show on the ribbon}
+
+\item{...}{key=value CSS passed along to the ribbon div}
+
+\item{fade}{boolean. Whether or not the default opacity should be set to < 1, but transition on hover. Default TRUE}
+
+\item{link_css}{A list of key=value CSS passed along to the link text}
+
+\item{parent_css}{A list of key=value CSS passed along to the parent div of the ribbon}
+
+\item{hover_css}{A list of key=value CSS passed along to the .ribbon:hover CSS}
 }
 \description{
 The benefits of using CSS are:
+
  - any color you can dream up
+
  - any font / font color you want
+
  - any text you want
+
  - customizable size / location / etc.
+
  - do not have to worry about DPI and image resolution
+
  - link is only clickable on the banner itself
-}
-\details{
-CSS passed to the function will override the default CSS to
+
+ CSS passed to the function will override the default CSS to
  give you the ultimate flexibility in customizing the ribbon to
  fit your needs.
+}
+\examples{
+ribbon_css("https://github.com/colearendt/gitlink")
+ribbon_css("https://github.com/colearendt/gitlink", position = "left", color = "#e4e4e4" )
+ribbon_css("https://github.com/colearendt/gitlink", position = "left", color = "#eafffc")
 
-@param link The URL that the ribbon will link to
- @param position The position to place the ribbon in (either "left" or "right")
- @param color Any css-valid color specification for the background of the ribbon
- @param font_color Any css-valid color specification for the text of the ribbon
- @param border_color Any css-valid color specification for the border of the ribbon
- @param text The text to show on the ribbon
- @param ... key=value CSS passed along to the ribbon div
- @param link_css A list of key=value CSS passed along to the link text
- @param parent_css A list of key=value CSS passed along to the parent div of the ribbon
+ribbon_css("https://github.com/colearendt/gitlink", fade = FALSE)
 
-@examples
- ribbon_css("https://github.com/colearendt/gitlink")
- ribbon_css("https://github.com/colearendt/gitlink", position = "left", color = "#e4e4e4")
- ribbon_css("https://github.com/colearendt/gitlink", position = "left", color = "#eafffc")
+ribbon_css("https://github.com/colearendt/gitlink", hover_css = list("opacity" = "0.9"))
+
+ribbon_css("https://github.com/colearendt/gitlink", parent_css = list("background-color" = "red"))
 }
