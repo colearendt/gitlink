@@ -33,7 +33,11 @@ ribbon_opacity_css <- function(...){
 
 #' Build a GitHub Ribbon with CSS
 #'
-#' @description The benefits of using CSS are:
+#' @description A customizable CSS ribbon with a link to "Fork me on GitHub."
+#'   CSS passed to the function will override the default CSS to give you the
+#'   ultimate flexibility in customizing the ribbon to fit your needs.
+#'
+#' @details The benefits of using CSS are:
 #'
 #'  - any color you can dream up
 #'
@@ -47,10 +51,7 @@ ribbon_opacity_css <- function(...){
 #'
 #'  - link is only clickable on the banner itself
 #'
-#'  CSS passed to the function will override the default CSS to
-#'  give you the ultimate flexibility in customizing the ribbon to
-#'  fit your needs.
-#'
+#'  - fancy fade / hover CSS out of the box
 #'
 #' @param link The URL that the ribbon will link to
 #' @param position The position to place the ribbon in (either "left" or "right")
@@ -63,6 +64,8 @@ ribbon_opacity_css <- function(...){
 #' @param link_css A list of key=value CSS passed along to the link text
 #' @param parent_css A list of key=value CSS passed along to the parent div of the ribbon
 #' @param hover_css A list of key=value CSS passed along to the .ribbon:hover CSS
+#'
+#' @return HTML that can be injected into any output
 #'
 #' @examples
 #' ribbon_css("https://github.com/colearendt/gitlink")
@@ -170,6 +173,21 @@ ribbon_css <- function(
   }
 }
 
+#' Build a GitHub Ribbon from an Image
+#'
+#' Publicly available ribbon images began the "GitHub ribbon craze." This is a
+#' helper function that client-side retrieves these images. As a result, only
+#' certain colors are available. \link{ribbon_css} is usually
+#' preferred for many reasons.
+#'
+#' @param link The URL that the ribbon will link to
+#' @param position The position to place the ribbon in (either "left" or "right")
+#' @param color The color for the ribbon. One of get_color_lookup()
+#'
+#' @return HTML that can be injected into any HTML output
+#'
+#' @seealso \code{\link{ribbon_css}}
+#'
 #' @export
 ribbon_img <- function(link, position = "right", color = "white") {
   hex = color_lookup[[color]]
@@ -194,6 +212,7 @@ ribbon_img <- function(link, position = "right", color = "white") {
   )
 }
 
+#' @rdname ribbon_img
 #' @export
 get_color_lookup <- function(){
   return(color_lookup)
