@@ -1,7 +1,10 @@
 # https://blog.github.com/2008-12-19-github-ribbons/
 # http://www.webdesigndev.com/20-beautiful-free-ribbon-elements-for-your-website/
 
-ribbon_opacity_css <- function(){
+# internal
+# puts CSS styling related to opacity into the <head> in a <style> block
+ribbon_opacity_css <- function(...){
+  hover_css <- rlang::list2(...)
   ribbon_css <- htmltools::css(
     "opacity" = "0.6",
     "transition" = c(
@@ -11,8 +14,12 @@ ribbon_opacity_css <- function(){
       "transition-delay" = "0s"
     )
   )
-  ribbon_hover_css <- htmltools::css(
-    "opacity" = "1"
+  ribbon_hover_css <- do.call(
+    htmltools::css,
+    c(
+      list("opacity" = "1"),
+      hover_css
+     )
   )
   return(
     htmltools::tags$head(
@@ -47,13 +54,20 @@ ribbon_opacity_css <- function(){
 #'  @param ... key=value CSS passed along to the ribbon div
 #'  @param link_css A list of key=value CSS passed along to the link text
 #'  @param parent_css A list of key=value CSS passed along to the parent div of the ribbon
+#'  @param hover_css A list of key=value CSS passed along to the .ribbon:hover CSS
 #'
 #'  @examples
 #'  ribbon_css("https://github.com/colearendt/gitlink")
 #'  ribbon_css("https://github.com/colearendt/gitlink", position = "left", color = "#e4e4e4")
 #'  ribbon_css("https://github.com/colearendt/gitlink", position = "left", color = "#eafffc")
+#'
+#'  # customize the hover css
+#'  ribbon_css("https://github.com/colearendt/gitlink", hover_css = list("opacity" = "0.9"))
+#'
+#'  # this one is particularly ugly, but proves a point
+#'  ribbon_css("https://github.com/colearendt/gitlink", parent_css = list("background-color" = "red"))
 #' @export
-ribbon_css <- function(link, position = c("left","right"), color = "white", font_color = "black", border_color = "white", text = "Fork me on GitHub", ..., link_css = list(), parent_css = list()) {
+ribbon_css <- function(link, position = c("left","right"), color = "white", font_color = "black", border_color = "white", text = "Fork me on GitHub", ..., link_css = list(), parent_css = list(), hover_css = list()) {
   ribbon_css <- rlang::list2(...)
   # calculate location based on position
   if (length(position) > 1) {
@@ -125,7 +139,7 @@ ribbon_css <- function(link, position = c("left","right"), color = "white", font
       htmltools::a(href = link, text, style = css_a, target = "_blank")
     )
   )
-  return(html_prep)
+  return(list(html_prep, ribbon_opacity_css(!!!hover_css)))
 }
 
 #' @export
