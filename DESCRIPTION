@@ -4,9 +4,8 @@ Version: 0.0.0.9000
 Authors@R: c(
     person("Cole", "Arendt", , "cole@rstudio.com", c("aut", "cre")),
     person("RStudio", role = c("cph", "fnd"))
-)
-Description: Provides helpers to add git links to Shiny applications, R Markdown documents, 
-            and other HTML-based resources. This is most commonly used for GitHub ribbons.
+    )
+Description: Provides helpers to add git links to Shiny applications, R Markdown documents, and other HTML-based resources. This is most commonly used for GitHub ribbons.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
