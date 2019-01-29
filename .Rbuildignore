@@ -1,3 +1,4 @@
 ^LICENSE\.md$
-^ribbon\.Rproj$
+^gitlink\.Rproj$
 ^\.Rproj\.user$
+^test-app$
