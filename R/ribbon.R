@@ -6,7 +6,7 @@ ribbon_opacity_css <- function(){
     "opacity" = "0.6",
     "transition" = c(
       "transition-property" = "opacity",
-      "transition-duration" = "0.5s",
+      "transition-duration" = "0s",
       "transition-timing-function" = "ease",
       "transition-delay" = "0s"
     )
@@ -17,8 +17,8 @@ ribbon_opacity_css <- function(){
   return(
     htmltools::tags$head(
       htmltools::tags$style(
-        ".ribbon:hover" = ribbon_hover_css,
-        ".ribbon" = ribbon_css
+        list(paste0(".ribbon:hover {",ribbon_hover_css, "}"),
+        paste0(".ribbon {", ribbon_css, "}"))
       )
     )
   )
