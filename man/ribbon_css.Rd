@@ -32,7 +32,15 @@ ribbon_css(link, position = c("left", "right"), color = "white",
 
 \item{hover_css}{A list of key=value CSS passed along to the .ribbon:hover CSS}
 }
+\value{
+HTML that can be injected into any output
+}
 \description{
+A customizable CSS ribbon with a link to "Fork me on GitHub."
+  CSS passed to the function will override the default CSS to give you the
+  ultimate flexibility in customizing the ribbon to fit your needs.
+}
+\details{
 The benefits of using CSS are:
 
  - any color you can dream up
@@ -47,18 +55,19 @@ The benefits of using CSS are:
 
  - link is only clickable on the banner itself
 
- CSS passed to the function will override the default CSS to
- give you the ultimate flexibility in customizing the ribbon to
- fit your needs.
+ - fancy fade / hover CSS out of the box
 }
 \examples{
 ribbon_css("https://github.com/colearendt/gitlink")
 ribbon_css("https://github.com/colearendt/gitlink", position = "left", color = "#e4e4e4" )
 ribbon_css("https://github.com/colearendt/gitlink", position = "left", color = "#eafffc")
 
+# make default opacity 1
 ribbon_css("https://github.com/colearendt/gitlink", fade = FALSE)
 
+# customize the hover css
 ribbon_css("https://github.com/colearendt/gitlink", hover_css = list("opacity" = "0.9"))
 
+# this one is particularly ugly, but proves a point
 ribbon_css("https://github.com/colearendt/gitlink", parent_css = list("background-color" = "red"))
 }
