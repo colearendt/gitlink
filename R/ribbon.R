@@ -22,12 +22,10 @@ ribbon_opacity_css <- function(...){
      )
   )
   return(
-    htmltools::tags$head(
-      htmltools::tags$style(
-        list(paste0(".ribbon:hover {",ribbon_hover_css, "}"),
-        paste0(".ribbon {", ribbon_css, "}"))
-      )
-    )
+   style = htmltools::tags$style(
+     list(paste0(".ribbon:hover {",ribbon_hover_css, "}"),
+     paste0(".ribbon {", ribbon_css, "}"))
+   )
   )
 }
 
@@ -167,7 +165,7 @@ ribbon_css <- function(
   )
 
   if (fade) {
-    return(list(html_prep, ribbon_opacity_css(!!!hover_css)))
+    return(htmltools::div(html_prep, ribbon_opacity_css(!!!hover_css)))
   } else {
     return(html_prep)
   }
