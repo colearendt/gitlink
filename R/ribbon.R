@@ -78,6 +78,9 @@ ribbon_opacity_css <- function(...){
 #'
 #' # this one is particularly ugly, but proves a point
 #' ribbon_css("https://github.com/colearendt/gitlink", parent_css = list("background-color" = "red"))
+#'
+#' # modify the location for a flexdashboard
+#' ribbon_css("https://github.com/colearendt/gitlink", parent_css = list(top = "50px", "z-index" = "10"))
 #' @export
 ribbon_css <- function(
   link,
