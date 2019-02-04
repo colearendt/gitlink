@@ -168,7 +168,7 @@ ribbon_css <- function(
   )
 
   if (fade) {
-    return(htmltools::div(html_prep, ribbon_opacity_css(!!!hover_css)))
+    return(htmltools::tagList(html_prep, ribbon_opacity_css(!!!hover_css)))
   } else {
     return(html_prep)
   }
