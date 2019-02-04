@@ -11,7 +11,7 @@ test_that("style is included when needed", {
   expect_match(as.character(res), '<style>.*</style>')
 
   res_none <- ribbon_css("https://opacity.com", fade = FALSE)
-  not(expect_match)(as.character(res_none), '<style>.*</style>')
+  expect_false(grepl('<style>.*</style>', as.character(res_none)))
 })
 
 test_that("text is included", {
@@ -23,11 +23,11 @@ test_that("text is included", {
 test_that("position is configurable", {
   res_left <- ribbon_css("https://left.example.com", position = "left")
   expect_match(as.character(res_left), ";left:")
-  not(expect_match)(as.character(res_left), ";right:")
+  expect_false(grepl(";right:", as.character(res_left)))
 
   res_right <- ribbon_css("https://right.example.com", position = "right")
   expect_match(as.character(res_right), ";right:")
-  not(expect_match)(as.character(res_right), ";left:")
+  expect_false(grepl(";left:", as.character(res_right)))
 })
 
 test_that("rmarkdown render works", {
