@@ -3,7 +3,7 @@
 
 # internal
 # puts CSS styling related to opacity into the <head> in a <style> block
-ribbon_opacity_css <- function(...){
+ribbon_opacity_css <- function(...) {
   hover_css <- rlang::list2(...)
   ribbon_css <- htmltools::css(
     "opacity" = "0.6",
@@ -19,13 +19,15 @@ ribbon_opacity_css <- function(...){
     c(
       list("opacity" = "1"),
       hover_css
-     )
+    )
   )
   return(
-   style = htmltools::tags$style(
-     list(paste0(".ribbon:hover {",ribbon_hover_css, "}"),
-     paste0(".ribbon {", ribbon_css, "}"))
-   )
+    style = htmltools::tags$style(
+      list(
+        paste0(".ribbon:hover {", ribbon_hover_css, "}"),
+        paste0(".ribbon {", ribbon_css, "}")
+      )
+    )
   )
 }
 
@@ -85,18 +87,17 @@ ribbon_opacity_css <- function(...){
 #' ribbon_css(url, parent_css = list(top = "50px", "z-index" = "10"))
 #' @export
 ribbon_css <- function(
-  link,
-  position = c("left","right"),
-  color = "white",
-  font_color = "black",
-  border_color = "white",
-  text = "Fork me on GitHub",
-  ...,
-  fade = TRUE,
-  link_css = list(),
-  parent_css = list(),
-  hover_css = list()
-  ) {
+                       link,
+                       position = c("left", "right"),
+                       color = "white",
+                       font_color = "black",
+                       border_color = "white",
+                       text = "Fork me on GitHub",
+                       ...,
+                       fade = TRUE,
+                       link_css = list(),
+                       parent_css = list(),
+                       hover_css = list()) {
   ribbon_css <- rlang::list2(...)
   # calculate location based on position
   if (length(position) > 1) {
@@ -114,50 +115,54 @@ ribbon_css <- function(
 
   css_ribbon_parent <- do.call(
     htmltools::css,
-    c(list(
-      "position" = "absolute",
-      "top" = "0px",
-      "overflow" = "hidden",
-      "width" = "150px",
-      "height" = "150px",
-      "z-index" = "5",
-      "pointer-events" = "none"
+    c(
+      list(
+        "position" = "absolute",
+        "top" = "0px",
+        "overflow" = "hidden",
+        "width" = "150px",
+        "height" = "150px",
+        "z-index" = "5",
+        "pointer-events" = "none"
       ),
-    parent_location,
-    parent_css
+      parent_location,
+      parent_css
     )
   )
   css_ribbon <- do.call(
     htmltools::css,
-    args = c(list(
-    "background-color" = color,
-    "overflow" = "hidden",
-    "white-space" = "nowrap",
-    "position" = "absolute",
-    "top" = "45px",
-    "box-shadow" = "0 0 10px #888",
-    "pointer-events" = "auto"
-    # clip-path: polygon(-50% -50%, 80% -50%, 105% 150%, -50% 150%);
-    ),
-    location,
-    ribbon_css
+    args = c(
+      list(
+        "background-color" = color,
+        "overflow" = "hidden",
+        "white-space" = "nowrap",
+        "position" = "absolute",
+        "top" = "45px",
+        "box-shadow" = "0 0 10px #888",
+        "pointer-events" = "auto"
+        # clip-path: polygon(-50% -50%, 80% -50%, 105% 150%, -50% 150%);
+      ),
+      location,
+      ribbon_css
     )
   )
   css_a <- do.call(
     htmltools::css,
-    args = c(list(
-    "border" = paste("1px solid", border_color),
-    "color" = font_color,
-    "display" = "block",
-    "font" = "bold 95% 'Collegiate', Arial, sans-serif",
-    "margin" = "1px 0",
-    "padding" = "6px 50px",
-    "text-align" = "center",
-    "text-decoration" = "none",
-    "letter-spacing" = "-0.3px"
-    ),
-    link_css)
-    #"text-shadow" = "0 0 5px #444"
+    args = c(
+      list(
+        "border" = paste("1px solid", border_color),
+        "color" = font_color,
+        "display" = "block",
+        "font" = "bold 95% 'Collegiate', Arial, sans-serif",
+        "margin" = "1px 0",
+        "padding" = "6px 50px",
+        "text-align" = "center",
+        "text-decoration" = "none",
+        "letter-spacing" = "-0.3px"
+      ),
+      link_css
+    )
+    # "text-shadow" = "0 0 5px #444"
   )
   html_prep <- htmltools::div(
     class = "ribbon-parent",
@@ -170,7 +175,7 @@ ribbon_css <- function(
   )
 
   if (fade) {
-    return(htmltools::tagList(html_prep, ribbon_opacity_css(!!!hover_css)))
+    return(htmltools::tagList(html_prep, ribbon_opacity_css(!!! hover_css)))
   } else {
     return(html_prep)
   }
@@ -193,7 +198,7 @@ ribbon_css <- function(
 #'
 #' @export
 ribbon_img <- function(link, position = "right", color = "white") {
-  hex = color_lookup[[color]]
+  hex <- color_lookup[[color]]
   htmltools::a(
     href = link,
     htmltools::img(
@@ -201,7 +206,7 @@ ribbon_img <- function(link, position = "right", color = "white") {
         "position: absolute; top: 0;",
         position,
         ": 0; border: 0; z-index: 500"
-        ),
+      ),
       src = paste0(
         "https://s3.amazonaws.com/github/ribbons/forkme_",
         position,
@@ -209,7 +214,8 @@ ribbon_img <- function(link, position = "right", color = "white") {
         color,
         "_",
         hex,
-        ".png"),
+        ".png"
+      ),
       alt = "Fork me on GitHub"
     )
   )
@@ -217,7 +223,7 @@ ribbon_img <- function(link, position = "right", color = "white") {
 
 #' @rdname ribbon_img
 #' @export
-get_color_lookup <- function(){
+get_color_lookup <- function() {
   return(color_lookup)
 }
 
