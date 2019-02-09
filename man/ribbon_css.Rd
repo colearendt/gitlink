@@ -68,6 +68,11 @@ ribbon_css("https://github.com/colearendt/gitlink", fade = FALSE)
 # customize the hover css
 ribbon_css("https://github.com/colearendt/gitlink", hover_css = list("opacity" = "0.9"))
 
+url <- "https://github.com/colearendt/gitlink"
+
 # this one is particularly ugly, but proves a point
-ribbon_css("https://github.com/colearendt/gitlink", parent_css = list("background-color" = "red"))
+ribbon_css(url, parent_css = list("background-color" = "red"))
+
+# modify the location for a flexdashboard
+ribbon_css(url, parent_css = list(top = "50px", "z-index" = "10"))
 }
