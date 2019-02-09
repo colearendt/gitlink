@@ -1,6 +1,8 @@
 gitlink
 ================
 
+[![Travis build status](https://travis-ci.org/colearendt/gitlink.svg?branch=master)](https://travis-ci.org/colearendt/gitlink)
+
 Include useful GitHub links in your Shiny applications and R Markdown
 documents quickly and easily with the `gitlink` package\!
 
