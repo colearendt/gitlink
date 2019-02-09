@@ -27,3 +27,9 @@ devtools::install_github("colearendt/gitlink")
 
 The `ribbon_css` function is highly customizable, as you can set any color, font, font-size,
 or other CSS properties with the parameters provided.
+
+# Code of Conduct
+
+Please note that the 'gitlink' project is released with a [Contributor Code of
+Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree
+to abide by its terms.
