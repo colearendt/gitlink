@@ -8,10 +8,10 @@ test_that("link is passed correctly", {
 test_that("style is included when needed", {
   res <- ribbon_css("https://opacity.example.com", fade = TRUE)
   expect_match(as.character(res), '<div class="ribbon-parent".*>.*</div>')
-  expect_match(as.character(res), '<style>.*</style>')
+  expect_match(as.character(res), "<style>.*</style>")
 
   res_none <- ribbon_css("https://opacity.com", fade = FALSE)
-  expect_false(grepl('<style>.*</style>', as.character(res_none)))
+  expect_false(grepl("<style>.*</style>", as.character(res_none)))
 })
 
 test_that("text is included", {
@@ -42,7 +42,7 @@ test_that("rmarkdown render works", {
       as.logical(
         lapply(
           res,
-          function(x){
+          function(x) {
             grep("ribbon-parent", x)
           }
         )
