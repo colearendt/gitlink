@@ -18,3 +18,5 @@ Suggests:
     covr
 Depends: 
     R (>= 3.1)
+URL: https://github.com/colearendt/gitlink
+BugReports: https://github.com/colearendt/gitlink/issues
