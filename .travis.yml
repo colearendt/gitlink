@@ -5,7 +5,7 @@ sudo: false
 cache: packages
 
 os:
-  - osx
+#  - osx
   - linux
 #  - windows
 
