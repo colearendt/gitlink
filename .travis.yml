@@ -10,7 +10,6 @@ os:
 #  - windows
 
 r:
-- 3.1
 - 3.2
 - 3.3
 - oldrel
@@ -21,7 +20,6 @@ matrix:
   allow_failures:
   - r:
     - devel
-    - 3.1
     - 3.2
     - 3.3
 
