@@ -54,7 +54,7 @@ ribbon_opacity_css <- function(...) {
 #'  - fancy fade / hover CSS out of the box
 #'
 #' @param link The URL that the ribbon will link to
-#' @param position The position to place the ribbon in (either "left" or "right")
+#' @param position The position to place the ribbon in (either "left" or "right"). Default: right
 #' @param color Any css-valid color specification for the background of the ribbon
 #' @param font_color Any css-valid color specification for the text of the ribbon
 #' @param border_color Any css-valid color specification for the border of the ribbon
