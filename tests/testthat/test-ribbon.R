@@ -32,6 +32,7 @@ test_that("position is configurable", {
 
 test_that("rmarkdown render works", {
   skip_if_not_installed("rmarkdown")
+  skip_if_not(rmarkdown::pandoc_available())
   rmd <- rprojroot::find_testthat_root_file("rmd.Rmd")
   output <- fs::file_temp("rmd", ext = ".html")
   rmarkdown::render(rmd, output_file = output, quiet = TRUE)
