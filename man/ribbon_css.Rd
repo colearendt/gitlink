@@ -12,7 +12,7 @@ ribbon_css(link, position = c("left", "right"), color = "white",
 \arguments{
 \item{link}{The URL that the ribbon will link to}
 
-\item{position}{The position to place the ribbon in (either "left" or "right")}
+\item{position}{The position to place the ribbon in (either "left" or "right"). Default: right}
 
 \item{color}{Any css-valid color specification for the background of the ribbon}
 
