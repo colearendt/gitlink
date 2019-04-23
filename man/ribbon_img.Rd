@@ -25,6 +25,10 @@ helper function that client-side retrieves these images. As a result, only
 certain colors are available. \link{ribbon_css} is usually
 preferred for many reasons.
 }
+\details{
+NOTE that this creates a dependency on these image files, which
+are hosted publicly by GitHub on AWS.
+}
 \seealso{
 \code{\link{ribbon_css}}
 }
