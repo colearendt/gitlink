@@ -30,6 +30,13 @@ test_that("position is configurable", {
   expect_false(grepl(";left:", as.character(res_right)))
 })
 
+test_that("fails on bad position", {
+  expect_error(
+    ribbon_css("https://invalid.example.com", position = "invalid"),
+    "invalid"
+  )
+})
+
 test_that("rmarkdown render works", {
   skip_if_not_installed("rmarkdown")
   skip_if_not(rmarkdown::pandoc_available())
