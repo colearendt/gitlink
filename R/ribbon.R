@@ -188,6 +188,9 @@ ribbon_css <- function(
 #' certain colors are available. \link{ribbon_css} is usually
 #' preferred for many reasons.
 #'
+#' NOTE that this creates a dependency on these image files, which
+#' are hosted publicly by GitHub on AWS.
+#'
 #' @param link The URL that the ribbon will link to
 #' @param position The position to place the ribbon in (either "left" or "right")
 #' @param color The color for the ribbon. One of get_color_lookup()
