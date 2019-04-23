@@ -22,7 +22,10 @@ Imports:
 Suggests: 
     covr (>= 3.0.1),
     spelling (>= 2.0),
-    testthat (>= 2.0.0.9000)
+    testthat (>= 2.0.0.9000),
+    rmarkdown,
+    fs,
+    rprojroot
 Encoding: UTF-8
 Language: en-US
 LazyData: true
