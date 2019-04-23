@@ -25,7 +25,8 @@ Suggests:
     testthat (>= 2.0.0.9000),
     rmarkdown,
     fs,
-    rprojroot
+    rprojroot,
+    shiny
 Encoding: UTF-8
 Language: en-US
 LazyData: true
