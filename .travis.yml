@@ -12,6 +12,7 @@ os:
 r:
 - 3.2
 - 3.3
+- 3.4
 - oldrel
 - release
 - devel
@@ -22,6 +23,7 @@ matrix:
     - devel
     - 3.2
     - 3.3
+    - 3.4
 
 after_success:
   - Rscript -e 'covr::codecov()'
