@@ -1,6 +1,6 @@
 Package: gitlink
 Title: Add git links to your web-based assets
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     c(person(given = "Cole",
              family = "Arendt",
