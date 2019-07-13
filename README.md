@@ -19,7 +19,7 @@ ribbon_css("https://github.com/colearendt/gitlink")
 
 ### Getting Started
 
-The package can be installed from CRaN:
+The package can be installed from CRAN:
 
 ```r
 install.packages("gitlink")
