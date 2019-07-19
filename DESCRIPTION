@@ -1,6 +1,6 @@
 Package: gitlink
-Title: Add Git Links to Your Web Based Assets
-Version: 0.1.2
+Title: Add 'Git' Links to Your Web Based Assets
+Version: 0.1.3
 Authors@R: 
     c(person(given = "Cole",
              family = "Arendt",
@@ -8,9 +8,9 @@ Authors@R:
              email = "cole@rstudio.com"),
       person(given = "RStudio",
              role = c("cph", "fnd")))
-Description: Provides helpers to add 'git' links to 'shiny'
+Description: Provides helpers to add 'Git' links to 'shiny'
     applications, 'rmarkdown' documents, and other 'HTML' based resources.
-    This is most commonly used for GitHub ribbons.
+    This is most commonly used for 'GitHub' ribbons.
 License: MIT + file LICENSE
 URL: https://github.com/colearendt/gitlink
 BugReports: https://github.com/colearendt/gitlink/issues
