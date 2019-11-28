@@ -47,8 +47,8 @@ For more advanced examples, see `?ribbon_css`
 # Code of Conduct
 
 Please note that the 'gitlink' project is released with a [Contributor Code of
-Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree
-to abide by its terms.
+Conduct](https://github.com/colearendt/gitlink/blob/master/.github/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
 
 # Other Musings
 
